@@ -1,1 +1,16 @@
-{}
+{
+  "https://estatisalud.saludscope.com/login": "arriba",
+  "https://gestion.saludscope.com/login": "arriba",
+  "https://icostsalud.saludscope.com/ingresar": "arriba",
+  "https://mando.saludscope.com/admin/login": "arriba",
+  "https://paa.saludscope.com/ingresar": "arriba",
+  "https://paacptep.saludscope.com/ingresar": "arriba",
+  "https://pamec.saludscope.com/ingresar": "arriba",
+  "https://pgirasa.saludscope.com/login": "arriba",
+  "https://phe.saludscope.com/login": "arriba",
+  "https://pinar.saludscope.com/login": "arriba",
+  "https://simce.saludscope.com/ingresar": "arriba",
+  "https://smceth.saludscope.com/ingresar": "arriba",
+  "https://ssmcepmh.saludscope.com/login": "arriba",
+  "https://tic.saludscope.com/login": "arriba"
+}
