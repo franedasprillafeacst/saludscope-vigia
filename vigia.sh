@@ -1,11 +1,22 @@
 #!/bin/bash
 # Revisa cada dirección de sitios.txt (2 intentos, 20 s de espera entre ellos),
 # compara con estado.json y avisa SOLO en los cambios (caída / vuelta).
+# Las líneas 'cada-hora' solo se revisan si pasaron 55 min desde la última vez
+# (modo ahorro: cada visita despierta la app en Laravel Cloud).
 set -u
-nuevo='{}'
+ahora_s=$(date -u +%s)
+ultima=$(jq -r '._ultima_revision_apps // 0' estado.json)
+toca_apps=$(( ahora_s - ultima >= 3300 ? 1 : 0 ))
+nuevo=$(jq '{} + (if ._ultima_revision_apps then {_ultima_revision_apps} else {} end)' estado.json)
+[ $toca_apps = 1 ] && nuevo=$(echo "$nuevo" | jq --argjson t "$ahora_s" '. + {_ultima_revision_apps: $t}')
 cambios=""
-while read -r url; do
-  [[ -z "$url" || "$url" == \#* ]] && continue
+while read -r linea; do
+  [[ -z "$linea" || "$linea" == \#* ]] && continue
+  url=${linea#cada-hora }
+  if [ "$url" != "$linea" ] && [ $toca_apps = 0 ]; then
+    nuevo=$(echo "$nuevo" | jq --arg u "$url" --arg e "$(jq -r --arg u "$url" '.[$u] // "arriba"' estado.json)" '. + {($u): $e}')
+    continue
+  fi
   ok=0
   for intento in 1 2; do
     codigo=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "$url" || echo 000)

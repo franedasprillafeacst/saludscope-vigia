@@ -1,15 +1,18 @@
 # Una dirección por línea. El vigilante espera un código < 500.
+# Las marcadas 'cada-hora' se revisan una vez por hora (visitarlas despierta
+# la app en Laravel Cloud y cobra ese rato); las demás en cada corrida (10 min).
+# /up responde sin tocar la base de datos.
 https://mando.saludscope.com/admin/login
-https://simce.saludscope.com/ingresar
-https://icostsalud.saludscope.com/ingresar
-https://pamec.saludscope.com/ingresar
-https://ssmcepmh.saludscope.com/login
-https://gestion.saludscope.com/login
-https://paa.saludscope.com/ingresar
-https://paacptep.saludscope.com/ingresar
-https://pgirasa.saludscope.com/login
-https://pinar.saludscope.com/login
-https://tic.saludscope.com/login
-https://estatisalud.saludscope.com/login
-https://phe.saludscope.com/login
-https://smceth.saludscope.com/ingresar
+cada-hora https://simce.saludscope.com/up
+cada-hora https://icostsalud.saludscope.com/up
+cada-hora https://pamec.saludscope.com/up
+cada-hora https://ssmcepmh.saludscope.com/up
+cada-hora https://gestion.saludscope.com/up
+cada-hora https://paa.saludscope.com/up
+cada-hora https://paacptep.saludscope.com/up
+cada-hora https://pgirasa.saludscope.com/up
+cada-hora https://pinar.saludscope.com/up
+cada-hora https://tic.saludscope.com/up
+cada-hora https://estatisalud.saludscope.com/up
+cada-hora https://phe.saludscope.com/up
+cada-hora https://smceth.saludscope.com/up
