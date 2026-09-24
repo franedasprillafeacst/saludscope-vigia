@@ -1,0 +1,15 @@
+# Una dirección por línea. El vigilante espera un código < 500.
+https://mando.saludscope.com/admin/login
+https://simce.saludscope.com/ingresar
+https://icostsalud.saludscope.com/ingresar
+https://pamec.saludscope.com/ingresar
+https://ssmcepmh.saludscope.com/login
+https://gestion.saludscope.com/login
+https://paa.saludscope.com/ingresar
+https://paacptep.saludscope.com/ingresar
+https://pgirasa.saludscope.com/login
+https://pinar.saludscope.com/login
+https://tic.saludscope.com/login
+https://estatisalud.saludscope.com/login
+https://phe.saludscope.com/login
+https://smceth.saludscope.com/ingresar

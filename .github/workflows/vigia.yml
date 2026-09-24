@@ -1,0 +1,39 @@
+name: Vigilante
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vigia
+  cancel-in-progress: false
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Revisar las apps
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GMAIL_USUARIO: ${{ secrets.GMAIL_USUARIO }}
+          GMAIL_CLAVE: ${{ secrets.GMAIL_CLAVE }}
+          CORREO_DESTINO: ${{ secrets.CORREO_DESTINO }}
+        run: ./vigia.sh
+      # Guarda el estado solo si cambió. El día 1 de cada mes deja además
+      # una marca: GitHub apaga los workflows programados de un repo sin
+      # actividad en 60 días.
+      - name: Guardar estado
+        run: |
+          [ "$(date -u +%d%H%M | cut -c1-4)" = "0100" ] && date -u > latido.txt
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "vigilante-saludscope"
+            git config user.email "vigilante@saludscope.com"
+            git add -A && git commit -m "Estado del vigilante $(date -u +%FT%TZ)" && git push
+          fi
