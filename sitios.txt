@@ -16,3 +16,6 @@ cada-hora https://tic.saludscope.com/up
 cada-hora https://estatisalud.saludscope.com/up
 cada-hora https://phe.saludscope.com/up
 cada-hora https://smceth.saludscope.com/up
+cada-hora https://psff.saludscope.com/up
+cada-hora https://finanzasalud.saludscope.com/up
+cada-hora https://pacsalud.saludscope.com/up
