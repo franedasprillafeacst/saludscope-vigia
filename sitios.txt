@@ -20,4 +20,4 @@ cada-hora https://psff.saludscope.com/up
 cada-hora https://finanzasalud.saludscope.com/up
 cada-hora https://pacsalud.saludscope.com/up
 cada-hora https://formupres.saludscope.com/up
-cada-hora https://sgsst.saludscope.com/up
+cada-hora https://sg-sst.saludscope.com/up
