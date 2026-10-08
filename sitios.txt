@@ -23,4 +23,4 @@ cada-hora https://formupres.saludscope.com/up
 cada-hora https://sg-sst.saludscope.com/up
 cada-hora https://sgpp.saludscope.com/up
 cada-hora https://ecosistema.saludscope.com/up
-cada-hora https://landing-production-mrrr4r.laravel.cloud/up
+cada-hora https://saludscope.com/up
